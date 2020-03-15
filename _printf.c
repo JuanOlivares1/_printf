@@ -7,7 +7,7 @@ char* convert(unsigned int, int);
  
 int main() 
 { 
-	_printf("probando printf char:  %c hexadecimal: %x string: %s", '9', 10, "www10"); 
+	_printf("probando printf char:  %c hexadecimal: %x string: %s mas texto\n", '9', 10, "www10"); 
 	return 0;
 } 
  
@@ -16,6 +16,7 @@ void _printf(const char * const format,...)
 {
 	unsigned int i, num; 
 	char *str;
+	int flag = 0;
 
 	va_list arg; 
 	va_start(arg, format); 
@@ -27,7 +28,14 @@ void _printf(const char * const format,...)
 		{ 
 			putchar(format[i]);
 			i++;
+			if (format[i] == '\0')
+			{
+				flag = 1;
+				break;
+			}
 		}
+		if (flag)
+			break;
 		i++;
 
 		switch(format[i]) 
