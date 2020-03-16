@@ -12,30 +12,31 @@ int _printf(const char * const format, ...)
 	int flag = 0, size_f = 0;
 	va_list arg;
 
-	va_start(arg, format);
+	if (format == (char *)0)
+		return (-1);
 
-	for (; format[size_f]; size_f++)
-		;
+	va_start(arg, format);
 
 	i = 0;
 	while (format && format[i] != '\0')
 	{
 		while (format[i] != '%')
 		{
-			_putchar(format[i]);
-			i++;
 			if (format[i] == '\0')
 			{
 				flag = 1;
 				break;
 			}
+			_putchar(format[i]);
+			i++;
+			size_f++;
 		}
 		if (flag)
 			break;
 		i++;
-
+		if (format[i] == '\0')
+			return (-1);
 		printf_aux(arg, format, i, &size_f);
-
 		i++;
 	}
 	va_end(arg);
@@ -58,6 +59,7 @@ void printf_aux(va_list arg, const char * const format,
 	{
 	case 'c':
 		_putchar(va_arg(arg, int));
+		sz[0]++;
 		break;
 	case 'd':
 		print_int(va_arg(arg, int));
@@ -69,22 +71,23 @@ void printf_aux(va_list arg, const char * const format,
 		print_un_int(va_arg(arg, unsigned int));
 		break;
 	case 'o':
-		_puts(convert(va_arg(arg, unsigned int), 8));
+		_puts(convert(va_arg(arg, unsigned int), 8), sz);
 		break;
 	case 's':
-		_puts(va_arg(arg, char *));
+		_puts(va_arg(arg, char *), sz);
 		break;
 	case 'x':
-		_puts(convert2(va_arg(arg, unsigned int), 16));
+		_puts(convert2(va_arg(arg, unsigned int), 16), sz);
 		break;
 	case 'X':
-		_puts(convert(va_arg(arg, unsigned int), 16));
+		_puts(convert(va_arg(arg, unsigned int), 16), sz);
 		break;
 	case '%':
 		_putchar(format[i]);
-		sz[0]--;
+		sz[0]++;
 		break;
 	default:
+		sz[0] += 2;
 		_putchar(format[i - 1]);
 		_putchar(format[i]);
 	}
