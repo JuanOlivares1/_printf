@@ -68,19 +68,19 @@ void printf_aux(va_list arg, const char * const format,
 		print_int(va_arg(arg, int), sz);
 		break;
 	case 'u':
-		print_un_int(va_arg(arg, unsigned int));
+		print_un_int(va_arg(arg, unsigned int), sz);
 		break;
 	case 'o':
-		_puts(convert(va_arg(arg, unsigned int), 8), sz);
+		_puts(hexaoctal(va_arg(arg, unsigned int), 8, format[i]), sz);
 		break;
 	case 's':
 		_puts(va_arg(arg, char *), sz);
 		break;
 	case 'x':
-		_puts(convert2(va_arg(arg, unsigned int), 16), sz);
+		_puts(hexaoctal(va_arg(arg, unsigned int), 16, format[i]), sz);
 		break;
 	case 'X':
-		_puts(convert(va_arg(arg, unsigned int), 16), sz);
+		_puts(hexaoctal(va_arg(arg, unsigned int), 16, format[i]), sz);
 		break;
 	case '%':
 		_putchar(format[i]);

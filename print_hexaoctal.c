@@ -1,47 +1,29 @@
 #include "holberton.h"
 
 /**
- * convert - convert a number into other base
- * @num: string to print
+ * hexaoctal - convert a number into other base
+ * @num: number to print
  * @base: base to convert
+ * @op: output format option
  *
- * Return: pointer to
+ * Return: pointer to string of the number to print
  */
-char *convert(unsigned int num, int base)
+char *hexaoctal(unsigned int num, int base, char op)
 {
-	static const char Representation[] = "0123456789ABCDEF";
+	char upper[] = "0123456789ABCDEF";
+	char lower[] = "0123456789abcdef";
 	static char buffer[50];
-	char *ptr;
+	char *ptr, *ptr2;
 
 	ptr = &buffer[49];
 	*ptr = '\0';
 
+	if (op == 'x' || op == 'o')
+		ptr2 = lower;
+	else
+		ptr2 = upper;
 	do {
-		*--ptr = Representation[num % base];
-		num /= base;
-	} while (num != 0);
-
-	return (ptr);
-}
-
-/**
- * convert2 - convert a number into other base
- * @num: string to print
- * @base: base to convert
- *
- * Return: pointer to
- */
-char *convert2(unsigned int num, int base)
-{
-	static const char Representation[] = "0123456789abcdef";
-	static char buffer[50];
-	char *ptr;
-
-	ptr = &buffer[49];
-	*ptr = '\0';
-
-	do {
-		*--ptr = Representation[num % base];
+		*--ptr = ptr2[num % base];
 		num /= base;
 	} while (num != 0);
 

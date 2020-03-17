@@ -29,12 +29,14 @@ void print_int(int num, int *sz)
 /**
  * print_un_int - prints unsigned integers
  * @num: number to print
+ * @sz: pointer to size_f
  *
  * Return: void
  */
-void print_un_int(unsigned int num)
+void print_un_int(unsigned int num, int *sz)
 {
 	if (num / 10)
-		print_un_int(num / 10);
+		print_un_int(num / 10, sz);
 	_putchar('0' + (num % 10));
+	sz[0]++;
 }

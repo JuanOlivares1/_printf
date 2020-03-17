@@ -1,16 +1,17 @@
-.TH man 2 "17 March 2020" "Holberton" "_printf man page"
+.TH man 3 "17 March 2020" "Holberton School" "_printf man page"
 .SH NAME
-printf - _format and print data
+_printf - format and print data
 .SH SYNOPSIS
 .B #include "holberton.h"
 
-.B printf 
+.B _printf
 .I FORMAT [ARGUMENT]...
 .SH DESCRIPTION
 Print ARGUMENT(s) according to FORMAT and return the number of characters printed excluding the null byte used to end output
 
 FORMAT controls the output
 
+.SH ERROR
 In case of error -1 value is returned
 
 .SH EXAMPLE

@@ -1,4 +1,5 @@
 #include <limits.h>
+#include <stdio.h>
 #include "holberton.h"
 
 /**
@@ -82,6 +83,26 @@ int main(void)
 
     len = _printf("asd%dasd %i, %d %i %d\n", max, min, -999*9, 4444, 5);
     len2 = printf("asd%dasd %i, %d %i %d\n", max, min, -999*9, 4444, 5);
+    _printf("Length:[%d, %i]\n", len, len);
+    printf("Length:[%d, %i]\n", len2, len2);
+
+    printf("///////////////////////////////////////////////////////////////\n");
+
+    len = _printf("%o\n", -123);
+    len2 = printf("%o\n", -123);
+    _printf("Length:[%d, %i]\n", len, len);
+    printf("Length:[%d, %i]\n", len2, len2);
+    len = _printf("%x\n", -123);
+    len2 = printf("%x\n", -123);
+    _printf("Length:[%d, %i]\n", len, len);
+    printf("Length:[%d, %i]\n", len2, len2);
+    len = _printf("%X\n", -123);
+    len2 = printf("%X\n", -123);
+    _printf("Length:[%d, %i]\n", len, len);
+    printf("Length:[%d, %i]\n", len2, len2);
+
+    len = _printf("%u\n", UINT_MAX);
+    len2 = printf("%u\n", UINT_MAX);
     _printf("Length:[%d, %i]\n", len, len);
     printf("Length:[%d, %i]\n", len2, len2);
 }
