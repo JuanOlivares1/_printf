@@ -62,10 +62,10 @@ void printf_aux(va_list arg, const char * const format,
 		sz[0]++;
 		break;
 	case 'd':
-		print_int(va_arg(arg, int));
+		print_int(va_arg(arg, int), sz);
 		break;
 	case 'i':
-		print_int(va_arg(arg, int));
+		print_int(va_arg(arg, int), sz);
 		break;
 	case 'u':
 		print_un_int(va_arg(arg, unsigned int));

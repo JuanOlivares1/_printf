@@ -57,7 +57,6 @@ int main(void)
     len2 = printf("len %s hola %c more %s txt\n", "string", 'z', "asdasd");
     _printf("Length:[%d, %i]\n", len, len);
     printf("Length:[%d, %i]\n", len2, len2);
-    printf("----------------------------------\n");
     len = _printf("len %c hola %k\n", 'z');
     len2 = printf("len %c hola %k\n", 'z');
     _printf("Length:[%d, %i]\n", len, len);
@@ -76,6 +75,12 @@ int main(void)
     printf("Length:[%d, %i]\n", len2, len2);
     len = _printf("asd%\n");
     len2 = printf("asd%\n");
+    _printf("Length:[%d, %i]\n", len, len);
+    printf("Length:[%d, %i]\n", len2, len2);
+    printf("###############################################################\n");
+    ui = (unsigned int)INT_MAX;
+    len = _printf("asd%dasd %i, %d %i %d\n", ui, -42323, -999*9, 4444, 5);
+    len2 = printf("asd%dasd %i, %d %i %d\n", ui, -42323, -999*9, 4444, 5);
     _printf("Length:[%d, %i]\n", len, len);
     printf("Length:[%d, %i]\n", len2, len2);
 }
