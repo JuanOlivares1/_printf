@@ -1,0 +1,18 @@
+.TH man 2 "17 March 2020" "Holberton" "_printf man page"
+.SH NAME
+printf - _format and print data
+.SH SYNOPSIS
+.B #include "holberton.h"
+
+.B printf 
+.I FORMAT [ARGUMENT]...
+.SH DESCRIPTION
+Print ARGUMENT(s) according to FORMAT and return the number of characters printed excluding the null byte used to end output
+
+FORMAT controls the output
+
+In case of error -1 value is returned
+
+.SH EXAMPLE
+.SH SEE ALSO
+.SH AUTHOR
