@@ -9,6 +9,8 @@
  */
 void print_int(int num, int *sz)
 {
+	unsigned int num2;
+
 	if (num < 0)
 	{
 		num = -num;
@@ -16,9 +18,11 @@ void print_int(int num, int *sz)
 		sz[0]++;
 	}
 
-	if (num / 10)
-		print_int(num / 10, sz);
-	_putchar('0' + (num % 10));
+	num2 = num;
+
+	if (num2 / 10)
+		print_int(num2 / 10, sz);
+	_putchar('0' + (num2 % 10));
 	sz[0]++;
 }
 

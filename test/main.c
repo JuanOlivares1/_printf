@@ -78,9 +78,10 @@ int main(void)
     _printf("Length:[%d, %i]\n", len, len);
     printf("Length:[%d, %i]\n", len2, len2);
     printf("###############################################################\n");
-    ui = (unsigned int)INT_MAX;
-    len = _printf("asd%dasd %i, %d %i %d\n", ui, -42323, -999*9, 4444, 5);
-    len2 = printf("asd%dasd %i, %d %i %d\n", ui, -42323, -999*9, 4444, 5);
+    int max = INT_MAX, min = INT_MIN;
+
+    len = _printf("asd%dasd %i, %d %i %d\n", max, min, -999*9, 4444, 5);
+    len2 = printf("asd%dasd %i, %d %i %d\n", max, min, -999*9, 4444, 5);
     _printf("Length:[%d, %i]\n", len, len);
     printf("Length:[%d, %i]\n", len2, len2);
 }
