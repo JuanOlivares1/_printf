@@ -11,9 +11,48 @@ Print ARGUMENT(s) according to FORMAT and return the number of characters printe
 
 FORMAT controls the output
 
+.SH USAGE
+
+For use arguments type the character
+.I %
+following by the option
+
+The options are the folling:
+
+.I c
+prints a character
+
+.I i
+or
+.I d
+prints integer numbers
+
+.I s
+prints a string
+
+.I x
+or
+.I X
+converts decimal to hexadecimal numbers and print it
+
+.I o
+converts decimal to octal numbers and print it
+
+.I u
+prints unsigned int numbers
+.SH EXAMPLE
+
+Here some examples of usage:
+
+_printf("example... int:%i, char:%c, string:%s, hexa:%X", 1, 's', "hello", 15);
+
+output: example... int:1, char:s, string:hello, hexa:F
+
 .SH ERROR
 In case of error -1 value is returned
 
-.SH EXAMPLE
 .SH SEE ALSO
+man printf
+
 .SH AUTHOR
+Daniel Perez, Juan David Olivares
